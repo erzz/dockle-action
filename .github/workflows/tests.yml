@@ -31,13 +31,11 @@ jobs:
         with:
           image: alpine:latest
           report-format: sarif
-          report-name: erzz
+          report-name: dockle
           failure-threshold: fatal
           exit-code: 1
           dockle-version: 0.3.16
-      - name: Upload Reports
-        uses: actions/upload-artifact@v2
-        if: always()
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v1
         with:
-          name: Advanced Report
-          path: erzz.sarif
+          sarif_file: dockle.sarif
