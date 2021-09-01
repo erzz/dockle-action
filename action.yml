@@ -46,4 +46,7 @@ runs:
         REPORT_NAME: ${{ inputs.report-name }}
         FAILURE_THRESHOLD: ${{ inputs.failure-threshold }}
         EXIT_CODE: ${{ inputs.exit-code }}
-      run: dockle -f "$REPORT_FORMAT" -o "$REPORT_NAME.$REPORT_FORMAT" --exit-code $EXIT_CODE --exit-level "$FAILURE_THRESHOLD" "$IMAGE"
+      run: |
+        dockle -f "$REPORT_FORMAT" -o "$REPORT_NAME.$REPORT_FORMAT" --exit-code $EXIT_CODE --exit-level "$FAILURE_THRESHOLD" "$IMAGE"
+        # Re-run for stdout report too
+        dockle --exit-code $EXIT_CODE --exit-level "$FAILURE_THRESHOLD" "$IMAGE"
