@@ -1,5 +1,9 @@
 name: "dockle-action"
+author: "Sean Erswell-Liljefelt"
 description: "Lint & Best Practices for container images with integrations to Github UI"
+branding:
+  color: gray-dark
+  icon: layers
 inputs:
   image:
     description: "The image that should be analysed"
@@ -33,10 +37,10 @@ runs:
       env:
         DOCKLE_VERSION: ${{ inputs.dockle-version }}
       run: |
-         if [ "$DOCKLE_VERSION" = "latest" ]; then
-           export DOCKLE_VERSION=$(curl --silent "https://api.github.com/repos/goodwithtech/dockle/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
-         fi
-         curl -L -o dockle.deb https://github.com/goodwithtech/dockle/releases/download/v${DOCKLE_VERSION}/dockle_${DOCKLE_VERSION}_Linux-64bit.deb && sudo dpkg -i dockle.deb && rm dockle.deb
+        if [ "$DOCKLE_VERSION" = "latest" ]; then
+          export DOCKLE_VERSION=$(curl --silent "https://api.github.com/repos/goodwithtech/dockle/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+        fi
+        curl -L -o dockle.deb https://github.com/goodwithtech/dockle/releases/download/v${DOCKLE_VERSION}/dockle_${DOCKLE_VERSION}_Linux-64bit.deb && sudo dpkg -i dockle.deb && rm dockle.deb
     - name: Run Dockle
       shell: bash
       id: dockle
