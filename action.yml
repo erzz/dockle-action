@@ -1,0 +1,49 @@
+name: "dockle-action"
+description: "Lint & Best Practices for container images with integrations to Github UI"
+inputs:
+  image:
+    description: "The image that should be analysed"
+    required: true
+  report-format:
+    description: "Choose one of json or sarif for UI integration with GHAS"
+    required: false
+    default: "json"
+  report-name:
+    description: "Defaults to dockle-report and extension is added automatically."
+    required: false
+    default: "dockle-report"
+  failure-threshold:
+    description: "Level of findings that should trigger a job failure. Defaults to WARN. Options are INFO, WARN, FATAL"
+    required: false
+    default: "WARN"
+  exit-code:
+    description: "Should the job fail if findings at or higher than threshold? 0=No 1=Yes. Defaults to 0"
+    required: false
+    default: "0"
+  dockle-version:
+    description: "If you wish to specify a version of Dockle to use in the format 1.2.3 - otherwise uses latest"
+    required: false
+    default: "latest"
+runs:
+  using: "composite"
+  steps:
+    - name: Install Dockle
+      shell: bash
+      id: install
+      env:
+        DOCKLE_VERSION: ${{ inputs.dockle-version }}
+      run: |
+         if [ "$DOCKLE_VERSION" = "latest" ]; then
+           export DOCKLE_VERSION=$(curl --silent "https://api.github.com/repos/goodwithtech/dockle/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+         fi
+         curl -L -o dockle.deb https://github.com/goodwithtech/dockle/releases/download/v${DOCKLE_VERSION}/dockle_${DOCKLE_VERSION}_Linux-64bit.deb && sudo dpkg -i dockle.deb && rm dockle.deb
+    - name: Run Dockle
+      shell: bash
+      id: dockle
+      env:
+        IMAGE: ${{ inputs.image }}
+        REPORT_FORMAT: ${{ inputs.report-format }}
+        REPORT_NAME: ${{ inputs.report-name }}
+        FAILURE_THRESHOLD: ${{ inputs.failure-threshold }}
+        EXIT_CODE: ${{ inputs.exit-code }}
+      run: dockle -f "$REPORT_FORMAT" -o "$REPORT_NAME.$REPORT_FORMAT" --exit-code $EXIT_CODE --exit-level "$FAILURE_THRESHOLD" "$IMAGE"
