@@ -125,7 +125,7 @@ jobs:
           failure-threshold: fatal
           exit-code: 1
           dockle-version: 0.3.16
-          accept-extension: pem
+          accept-extensions: pem
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v1
