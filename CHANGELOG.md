@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/erzz/dockle-action/compare/v1.0.0...v1.1.0) (2021-09-13)
+
+
+### Features
+
+* add allow rules for credential checks ([38c400a](https://github.com/erzz/dockle-action/commit/38c400ab5ec7844a78af3da010feac3732dcfcbd))
+
 # 1.0.0 (2021-09-01)
 
 
