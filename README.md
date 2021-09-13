@@ -18,8 +18,11 @@ You can set your own threshold for when to fail the job and decide whether a fai
 | `report-format`      | json              | The format to generate a report in. Either `json` or `sarif`                                     |
 | `report-name`        | dockle-report     | The name of the report (without a file extension as thats added automatically by report-format)  |
 | `failure-threshold`  | warn              | Threshold for findings to trigger a failure of the job Options are `INFO`, `WARN`, or `FATAL`    |
-| `exit-code`          | 0                 | Change to `1` in order to stop the pipeline on failure                                            |
+| `exit-code`          | 0                 | Change to `1` in order to stop the pipeline on failure                                           |
 | `dockle-version`     | latest            | Specify a version of Dockle to use in the format `1.2.3`, otherwise it uses the latest version   |
+| `accept-keywords`    | ""                | Comma seperated list of acceptable keywords for credential checks e.g. `GPG_KEY,KEYCLOAK_VERSION`|
+| `accept-filenames`   | ""                | Comma seperated list of acceptable file names for credential checks e.g. `id_rsa,id_dsa`         |
+| `accept-extensions`  | ""                | Comma seperated list of acceptable file extensions for credential checks e.g. `pem,log`          |
 
 ## Potential Artifacts
 
@@ -92,7 +95,7 @@ jobs:
 
 ### Advanced usage and private registries
 
-In this more complex example we try to use all inputs and upload the resulting SARIF file to GHAS.
+In this more complex example we try to use all inputs and upload the resulting SARIF file to GHAS. It includes a rule to ignore .pem files in the credentials checks and renaming the report.
 
 The example is also using an image from a private registry so we will add a preceding step to also authenticate with the registry before trying to pull it in the scan. The step you use will depend on your registry, in this case, its GCR.
 
@@ -122,6 +125,7 @@ jobs:
           failure-threshold: fatal
           exit-code: 1
           dockle-version: 0.3.16
+          accept-extension: pem
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v1
