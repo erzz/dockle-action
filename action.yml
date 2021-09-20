@@ -66,6 +66,7 @@ runs:
         DOCKLE_ACCEPT_FILES: ${{ inputs.accept-filenames }}
         DOCKLE_ACCEPT_FILE_EXTENSIONS: ${{ inputs.accept-extensions }}
       run: |
-        dockle -f "$REPORT_FORMAT" -o "$REPORT_NAME.$REPORT_FORMAT" --exit-code $EXIT_CODE --exit-level "$FAILURE_THRESHOLD" "$IMAGE"
-        # Re-run for stdout report too
+        # Exit always with exit 0 to continue with the stdout version
+        dockle -f "$REPORT_FORMAT" -o "$REPORT_NAME.$REPORT_FORMAT" --exit-code 0 --exit-level "$FAILURE_THRESHOLD" "$IMAGE"
+        # Re-run for stdout report and break build if required
         dockle --exit-code $EXIT_CODE --exit-level "$FAILURE_THRESHOLD" "$IMAGE"
