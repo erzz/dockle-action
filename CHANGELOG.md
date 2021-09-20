@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/erzz/dockle-action/compare/v1.1.0...v1.1.1) (2021-09-20)
+
+
+### Bug Fixes
+
+* stdout report not being produced when breaking build ([43bd850](https://github.com/erzz/dockle-action/commit/43bd850348b04556ba9e4557ae67666c84099e49))
+
 # [1.1.0](https://github.com/erzz/dockle-action/compare/v1.0.0...v1.1.0) (2021-09-13)
 
 
