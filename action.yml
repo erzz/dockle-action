@@ -40,6 +40,10 @@ inputs:
     description: "Comma seperated list of acceptable file extensions for credential checks"
     required: false
     default: ""
+  timeout:
+    description: "docker timeout. e.g) 5s, 5m..."
+    required: false
+    default: ""
 runs:
   using: "composite"
   steps:
@@ -65,6 +69,7 @@ runs:
         DOCKLE_ACCEPT_KEYS: ${{ inputs.accept-keywords }}
         DOCKLE_ACCEPT_FILES: ${{ inputs.accept-filenames }}
         DOCKLE_ACCEPT_FILE_EXTENSIONS: ${{ inputs.accept-extensions }}
+        DOCKLE_TIMEOUT: ${{ inputs.timeout }}
       run: |
         # Exit always with exit 0 to continue with the stdout version
         dockle -f "$REPORT_FORMAT" -o "$REPORT_NAME.$REPORT_FORMAT" --exit-code 0 --exit-level "$FAILURE_THRESHOLD" "$IMAGE"
