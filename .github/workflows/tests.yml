@@ -15,7 +15,7 @@ jobs:
          image: alpine:latest
          accept-extensions: pem
       - name: Upload Reports
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: Basic Report
