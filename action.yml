@@ -43,7 +43,7 @@ inputs:
   timeout:
     description: "docker timeout. e.g) 5s, 5m..."
     required: false
-    default: ""
+    default: "10m"
 runs:
   using: "composite"
   steps:
