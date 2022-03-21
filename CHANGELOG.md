@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/erzz/dockle-action/compare/v1.1.1...v1.2.0) (2022-03-21)
+
+
+### Bug Fixes
+
+* add a sane default value for new timeout input ([059e164](https://github.com/erzz/dockle-action/commit/059e164d658da4837e7de28e9958c576a3dc5c0e))
+
+
+### Features
+
+* add option for image pull input ([d8d87c4](https://github.com/erzz/dockle-action/commit/d8d87c4b8b11acf20a8be40d5ee5f86227c49453))
+
 ## [1.1.1](https://github.com/erzz/dockle-action/compare/v1.1.0...v1.1.1) (2021-09-20)
 
 
