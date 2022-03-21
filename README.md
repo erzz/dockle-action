@@ -45,7 +45,7 @@ If you change `report-format` to `sarif` then it will be produced in a format co
 
 ```yaml
 - name: Upload SARIF file
-  uses: github/codeql-action/upload-sarif@v1
+  uses: github/codeql-action/upload-sarif@v1.2.0
   with:
     # Path to SARIF file relative to the root of the repository
     sarif_file: dockle-report.sarif
@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Dockle
-        uses: erzz/dockle-action@v1
+        uses: erzz/dockle-action@v1.2.0
         with:
           image: alpine:latest
 ```
@@ -86,7 +86,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Dockle
-        uses: erzz/dockle-action@v1
+        uses: erzz/dockle-action@v1.2.0
         with:
           image: alpine:latest
           exit-code: 1
@@ -117,7 +117,7 @@ jobs:
           export_default_credentials: true
 
       - name: Run Dockle
-        uses: erzz/dockle-action@v1
+        uses: erzz/dockle-action@v1.2.0
         with:
           image: eu.gcr.io/my-project/my-image:v1.2.3
           report-format: sarif
@@ -128,7 +128,7 @@ jobs:
           accept-extensions: pem
 
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v1
+        uses: github/codeql-action/upload-sarif@v1.2.0
         with:
           sarif_file: super-report.sarif
 ```
