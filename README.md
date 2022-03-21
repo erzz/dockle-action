@@ -23,6 +23,7 @@ You can set your own threshold for when to fail the job and decide whether a fai
 | `accept-keywords`    | ""                | Comma seperated list of acceptable keywords for credential checks e.g. `GPG_KEY,KEYCLOAK_VERSION`|
 | `accept-filenames`   | ""                | Comma seperated list of acceptable file names for credential checks e.g. `id_rsa,id_dsa`         |
 | `accept-extensions`  | ""                | Comma seperated list of acceptable file extensions for credential checks e.g. `pem,log`          |
+| `timeout`            | "10m"             | Time allowed for the image to be pulled from the registry e.g) `5s`, `5m`...                     |
 
 ## Potential Artifacts
 
