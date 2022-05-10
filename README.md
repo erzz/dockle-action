@@ -84,7 +84,7 @@ jobs:
     steps:
        # Makes sure your .dockleignore file is available to the next step
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Run Dockle
         uses: erzz/dockle-action@v1.2.0
@@ -108,14 +108,13 @@ jobs:
     steps:
        # Makes sure your .dockleignore file is available to the next step
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # Here you might use a docker login action, or something else
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0.2.1
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v0
         with:
-          service_account_key: ${{ secrets.SA_JSON_KEY }}
-          export_default_credentials: true
+          credentials_json: ${{ secrets.SA_JSON_KEY }}
 
       - name: Run Dockle
         uses: erzz/dockle-action@v1.2.0
