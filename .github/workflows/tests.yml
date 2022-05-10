@@ -9,17 +9,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Basic Test
         uses: ./
         with:
          image: alpine:latest
          accept-extensions: pem
+
       - name: Upload Reports
         uses: actions/upload-artifact@v3
         if: always()
         with:
           name: Basic Report
           path: dockle-report.json
+
   # <--------------- TEST ADVANCED CONFIG ---------------->
   advanced:
     name: Advanced
@@ -27,6 +30,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Advanced Test
         uses: ./
         with:
@@ -35,9 +39,18 @@ jobs:
           report-name: dockle
           failure-threshold: fatal
           exit-code: 1
-          dockle-version: 0.4.1
+          dockle-version: 0.4.5
           accept-extensions: pem
+
+      - name: Upload Reports
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: SARIF Report
+          path: dockle.sarif
+
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v1
+        uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: dockle.sarif
+          wait-for-processing: false
