@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Dockle
-        uses: erzz/dockle-action@v1.2.0
+        uses: erzz/dockle-action@v1
         with:
           image: alpine:latest
 ```
@@ -87,7 +87,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Dockle
-        uses: erzz/dockle-action@v1.2.0
+        uses: erzz/dockle-action@v1
         with:
           image: alpine:latest
           exit-code: 1
@@ -117,7 +117,7 @@ jobs:
           credentials_json: ${{ secrets.SA_JSON_KEY }}
 
       - name: Run Dockle
-        uses: erzz/dockle-action@v1.2.0
+        uses: erzz/dockle-action@v1
         with:
           image: eu.gcr.io/my-project/my-image:v1.2.3
           report-format: sarif
