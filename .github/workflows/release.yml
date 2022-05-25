@@ -4,22 +4,8 @@ on: workflow_dispatch
 jobs:
   # <--------------- RUN SEMANTIC RELEASE ---------------->
   release:
-    name: Semantic Release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-
-      - name: Semantic Release
-        id: semantic-release
-        uses: cycjimmy/semantic-release-action@v3.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-        with:
-          dry_run: false
-          extra_plugins: |
-            @semantic-release/changelog
-            @semantic-release/git
+    uses: erzz/workflows/.github/workflows/semantic-release.yml@main
+    with:
+      create-floating-tag: true
+    secrets:
+      token: ${{ secrets.RELEASE_TOKEN }}
