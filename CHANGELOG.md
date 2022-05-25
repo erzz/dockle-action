@@ -1,3 +1,15 @@
+## [1.3.0](https://github.com/erzz/dockle-action/compare/v1.2.0...v1.3.0) (2022-05-25)
+
+
+### :package: Maintenance
+
+* **deps:** update github/codeql-action action to v2 ([341faaf](https://github.com/erzz/dockle-action/commit/341faaffa4eca286313101ab5455ad757a6b94bf))
+
+
+### :sparkles: New Features
+
+* add floating releases for loosely pinning version ([644bc8c](https://github.com/erzz/dockle-action/commit/644bc8c9ec5ec5d23531d56025f35820e98d3b26)), closes [#13](https://github.com/erzz/dockle-action/issues/13)
+
 # [1.2.0](https://github.com/erzz/dockle-action/compare/v1.1.1...v1.2.0) (2022-03-21)
 
 
