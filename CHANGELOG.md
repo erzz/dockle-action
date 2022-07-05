@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/erzz/dockle-action/compare/v1.3.0...v1.3.1) (2022-07-05)
+
+
+### :bug: Bug Fixes
+
+* set default DOCKLE_HOST ([2d6a807](https://github.com/erzz/dockle-action/commit/2d6a807cbcfd09b528b193e7acc5f1f2e6b3f763)), closes [/github.com/goodwithtech/dockle/issues/188#issuecomment-1173841064](https://github.com/erzz//github.com/goodwithtech/dockle/issues/188/issues/issuecomment-1173841064)
+
 ## [1.3.0](https://github.com/erzz/dockle-action/compare/v1.2.0...v1.3.0) (2022-05-25)
 
 
