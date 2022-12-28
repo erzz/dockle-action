@@ -12,18 +12,20 @@ You can set your own threshold for when to fail the job and decide whether a fai
 
 ## Available Inputs
 
-| Input                | Default           | Details                                                                                          |
-| -------------------- | ----------------  | ------------------------------------------------------------------------------------------------ |
-| `image`              | none - mandatory! | The image you wish to scan. e.g. `alpine:latest` or `myownregistry.com/my-team/my-image:latest`  |
-| `report-format`      | json              | The format to generate a report in. Either `json` or `sarif`                                     |
-| `report-name`        | dockle-report     | The name of the report (without a file extension as thats added automatically by report-format)  |
-| `failure-threshold`  | warn              | Threshold for findings to trigger a failure of the job Options are `INFO`, `WARN`, or `FATAL`    |
-| `exit-code`          | 0                 | Change to `1` in order to stop the pipeline on failure                                           |
-| `dockle-version`     | latest            | Specify a version of Dockle to use in the format `1.2.3`, otherwise it uses the latest version   |
-| `accept-keywords`    | ""                | Comma seperated list of acceptable keywords for credential checks e.g. `GPG_KEY,KEYCLOAK_VERSION`|
-| `accept-filenames`   | ""                | Comma seperated list of acceptable file names for credential checks e.g. `id_rsa,id_dsa`         |
-| `accept-extensions`  | ""                | Comma seperated list of acceptable file extensions for credential checks e.g. `pem,log`          |
-| `timeout`            | "10m"             | Time allowed for the image to be pulled from the registry e.g) `5s`, `5m`...                     |
+| Input               | Default             | Details                                                                                           |
+|---------------------|---------------------|---------------------------------------------------------------------------------------------------|
+| `image`             | none - mandatory!   | The image you wish to scan. e.g. `alpine:latest` or `myownregistry.com/my-team/my-image:latest`   |
+| `report-format`     | json                | The format to generate a report in. Either `json` or `sarif`                                      |
+| `report-name`       | dockle-report       | The name of the report (without a file extension as thats added automatically by report-format)   |
+| `failure-threshold` | warn                | Threshold for findings to trigger a failure of the job Options are `INFO`, `WARN`, or `FATAL`     |
+| `exit-code`         | 0                   | Change to `1` in order to stop the pipeline on failure                                            |
+| `dockle-version`    | latest              | Specify a version of Dockle to use in the format `1.2.3`, otherwise it uses the latest version    |
+| `accept-keywords`   | ""                  | Comma seperated list of acceptable keywords for credential checks e.g. `GPG_KEY,KEYCLOAK_VERSION` |
+| `accept-filenames`  | ""                  | Comma seperated list of acceptable file names for credential checks e.g. `id_rsa,id_dsa`          |
+| `accept-extensions` | ""                  | Comma seperated list of acceptable file extensions for credential checks e.g. `pem,log`           |
+| `timeout`           | "10m"               | Time allowed for the image to be pulled from the registry e.g) `5s`, `5m`...                      |
+| `token`             | ${{ github.token }} | Token used to call the GitHub API and retrive the latest dockle version                           |
+
 
 ## Potential Artifacts
 
