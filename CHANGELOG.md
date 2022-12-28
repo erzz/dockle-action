@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/erzz/dockle-action/compare/v1.3.1...v1.3.2) (2022-12-28)
+
+
+### :bug: Bug Fixes
+
+* Run authenticated requests against the GitHub API ([1dd541c](https://github.com/erzz/dockle-action/commit/1dd541c2bb36b89e3d5f80d0557876135109f536))
+
 ## [1.3.1](https://github.com/erzz/dockle-action/compare/v1.3.0...v1.3.1) (2022-07-05)
 
 
