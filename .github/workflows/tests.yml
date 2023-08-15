@@ -23,7 +23,7 @@ jobs:
         if: always()
         with:
           name: Basic Success Report
-          path: dockle-success-report.json
+          path: dockle-success.json
 
   # <--------------- TEST ADVANCED CONFIG ---------------->
   advanced:
