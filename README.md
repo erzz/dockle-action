@@ -35,7 +35,7 @@ The default output of this job is the JSON format of the report and it is often 
 
 ```yaml
 - name: Upload Report
-  uses: actions/upload-artifact@v2
+  uses: actions/upload-artifact@v3
   if: always()
   with:
     name: Dockle Report
@@ -48,7 +48,7 @@ If you change `report-format` to `sarif` then it will be produced in a format co
 
 ```yaml
 - name: Upload SARIF file
-  uses: github/codeql-action/upload-sarif@v1.2.0
+  uses: github/codeql-action/upload-sarif@v2
   with:
     # Path to SARIF file relative to the root of the repository
     sarif_file: dockle-report.sarif
@@ -123,14 +123,14 @@ jobs:
         with:
           image: eu.gcr.io/my-project/my-image:v1.2.3
           report-format: sarif
-          report-name: super-report
+          report-name: dockle-results
           failure-threshold: fatal
           exit-code: 1
-          dockle-version: 0.3.16
+          dockle-version: 0.4.11
           accept-extensions: pem
 
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v1.2.0
+        uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: super-report.sarif
 ```
