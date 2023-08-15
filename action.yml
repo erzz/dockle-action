@@ -21,9 +21,9 @@ inputs:
     required: false
     default: "WARN"
   exit-code:
-    description: "Should the job fail if findings at or higher than threshold? 0=No 1=Yes. Defaults to 0"
+    description: "Should the job fail if findings at or higher than threshold? 0=No 1=Yes. Defaults to 1"
     required: false
-    default: "0"
+    default: "1"
   dockle-version:
     description: "If you wish to specify a version of Dockle to use in the format 1.2.3 - otherwise uses latest"
     required: false
