@@ -18,7 +18,7 @@ You can set your own threshold for when to fail the job and decide whether a fai
 | `report-format`     | json                | The format to generate a report in. Either `json` or `sarif`                                      |
 | `report-name`       | dockle-report       | The name of the report (without a file extension as thats added automatically by report-format)   |
 | `failure-threshold` | warn                | Threshold for findings to trigger a failure of the job Options are `INFO`, `WARN`, or `FATAL`     |
-| `exit-code`         | 0                   | Change to `1` in order to stop the pipeline on failure                                            |
+| `exit-code`         | 1                   | Change to `0` if you don't wish to "break the build" on findings                                  |
 | `dockle-version`    | latest              | Specify a version of Dockle to use in the format `1.2.3`, otherwise it uses the latest version    |
 | `accept-keywords`   | ""                  | Comma seperated list of acceptable keywords for credential checks e.g. `GPG_KEY,KEYCLOAK_VERSION` |
 | `accept-filenames`  | ""                  | Comma seperated list of acceptable file names for credential checks e.g. `id_rsa,id_dsa`          |
