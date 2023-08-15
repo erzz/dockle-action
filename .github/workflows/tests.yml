@@ -21,7 +21,7 @@ jobs:
       - name: Verify result
         if: always()
         run: |
-          if [ ${{ steps.test.conclusion == 'failure' }} ];
+          if [[ ${{ steps.test.conclusion == 'failure' }} ]];
             exit 0
           else
             exit 1
