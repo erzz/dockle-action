@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/erzz/dockle-action/compare/v1.3.2...v1.4.0) (2023-08-15)
+
+
+### :sparkles: New Features
+
+* default to exit code 1 unless overridden should be the default behaviour ([3ab4b31](https://github.com/erzz/dockle-action/commit/3ab4b31cd91327509e65ea67a4660cb0b0c55873))
+
 ## [1.3.2](https://github.com/erzz/dockle-action/compare/v1.3.1...v1.3.2) (2022-12-28)
 
 
