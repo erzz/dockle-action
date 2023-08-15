@@ -62,7 +62,7 @@ jobs:
           report-name: dockle
           failure-threshold: fatal
           exit-code: 0
-          dockle-version: 0.4.11
+          dockle-version: 0.4.13
           accept-extensions: pem
 
       - name: Upload Reports
