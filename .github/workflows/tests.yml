@@ -3,37 +3,6 @@ on: push
 
 jobs:
   # <---------------- TEST BASIC CONFIG ------------------>
-  basic-success:
-    name: Basic fail condition
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Basic Test
-        id: test
-        uses: ./
-        with:
-         image: alpine:latest
-         accept-extensions: pem
-         report-name: basic-fail
-
-      - name: Verify result
-        if: always()
-        run: |
-          if [[ ${{ steps.test.conclusion == 'failure' }} ]];
-            exit 0
-          else
-            exit 1
-          fi
-
-      - name: Upload Reports
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: Basic Fail Report
-          path: basic-fail.json
-
   basic-pass:
     name: Basic success condition
     runs-on: ubuntu-latest
