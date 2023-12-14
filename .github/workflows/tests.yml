@@ -19,7 +19,7 @@ jobs:
          report-name: basic-success
 
       - name: Upload Reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: Basic Success Report
@@ -45,7 +45,7 @@ jobs:
           accept-extensions: pem
 
       - name: Upload Reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: SARIF Report
