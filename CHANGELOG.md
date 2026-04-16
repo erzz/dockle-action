@@ -1,3 +1,18 @@
+## [1.4.1](https://github.com/erzz/dockle-action/compare/v1.4.0...v1.4.1) (2026-04-16)
+
+### :bug: Bug Fixes
+
+* remove sudo requirement from dockle installation ([1116d9c](https://github.com/erzz/dockle-action/commit/1116d9c7184e1c9ae9409de88a6b7f88526c4cdc))
+
+### :package: Maintenance
+
+* **deps:** update actions/checkout action to v4 ([fff8bf3](https://github.com/erzz/dockle-action/commit/fff8bf31942f352a0146cb72722da598be575622))
+* **deps:** update actions/checkout action to v6 ([d3a0e55](https://github.com/erzz/dockle-action/commit/d3a0e5562ed76aabf5348fb7db792c105d7dbe76))
+* **deps:** update actions/checkout action to v6 ([d1b42b0](https://github.com/erzz/dockle-action/commit/d1b42b0d93711a2116802a96d4e266fe1b37cc48))
+* **deps:** update actions/github-script action to v9 ([a105af6](https://github.com/erzz/dockle-action/commit/a105af6b1f0d8eab65c105e550f346604832f75b))
+* **deps:** update actions/upload-artifact action to v4 ([0961b10](https://github.com/erzz/dockle-action/commit/0961b10989e54bec4a78b42b464dc7342906a1cc))
+* **deps:** update actions/upload-artifact action to v7 ([9ec7f0b](https://github.com/erzz/dockle-action/commit/9ec7f0b5327513c2d81434b0e4cc0daf352dc224))
+
 ## [1.4.0](https://github.com/erzz/dockle-action/compare/v1.3.2...v1.4.0) (2023-08-15)
 
 
