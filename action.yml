@@ -65,7 +65,10 @@ runs:
         if [ "$DOCKLE_VERSION" = "latest" ]; then
           export DOCKLE_VERSION=$(curl -H "Authorization: token ${GH_TOKEN}" --silent "https://api.github.com/repos/goodwithtech/dockle/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
         fi
-        curl -L -o dockle.deb https://github.com/goodwithtech/dockle/releases/download/v${DOCKLE_VERSION}/dockle_${DOCKLE_VERSION}_Linux-64bit.deb && sudo dpkg -i dockle.deb && rm dockle.deb
+        INSTALL_DIR="${RUNNER_TEMP:-/tmp}/dockle"
+        mkdir -p "$INSTALL_DIR"
+        curl -L "https://github.com/goodwithtech/dockle/releases/download/v${DOCKLE_VERSION}/dockle_${DOCKLE_VERSION}_Linux-64bit.tar.gz" | tar xz -C "$INSTALL_DIR"
+        echo "$INSTALL_DIR" >> "$GITHUB_PATH"
     - name: Run Dockle
       shell: bash
       id: dockle
